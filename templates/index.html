@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Registration Form </title>
+		<style>
+			form{
+				width: 500px;
+				text-align: left;
+			}
+			h2, p{
+				color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<h1> Sign up! </h1>
+		<form action = '/process' method = 'POST'>
+			First Name: <input type='text' name = 'first'><br>
+			Last Name: <input type='text' name = 'last'><br>
+			Email: <input type='text' name = 'email'><br>
+			Password: <input type='password' name = 'password'><br>
+			Re-Enter Password: <input type='password' name = 'password2'><br>
+			<input type='submit' value='Submit'>
+		</form>
+
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<h2> Errors: </h2>
+		{% for message in messages %}
+		<p> {{message}} </p>
+		{% endfor %}
+		{% endif %}
+		{% endwith %}
+
+	</body>
+</html>
